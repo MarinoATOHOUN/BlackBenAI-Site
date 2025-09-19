@@ -1,8 +1,11 @@
 /**
- * Composant Header pour BlackBenAI
- * Développé par Marino ATOHOUN - Président Directeur Général de BlackBenAI
+ * Composant Header pour BlackBenAI - Développé par Marino ATOHOUN
  */
+// Ajout du logo dans le Header
+// Place le logo à gauche du menu principal
 
+// ...dans le JSX du HeaderContainer, juste avant le menu de navigation...
+// <div className="header-logo"><img src="/logo.png" alt="Logo BlackBenAI" style={{ width: '40px', height: '40px' }} /></div>
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -386,7 +389,7 @@ const Header: React.FC = () => {
       <Nav>
         <Logo to="/">
           <div className="logo-icon">
-            BB
+            <img src="/logo.png" alt="Logo BlackBenAI" style={{ width: '40px', height: '40px' }} />
           </div>
           <div className="logo-text">
             <span className="company-name">BlackBenAI</span>

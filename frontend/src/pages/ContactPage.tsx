@@ -22,6 +22,7 @@ import {
 
 import { colors, breakpoints, shadows } from '../styles/theme';
 import { Container, Grid, Button } from '../styles/GlobalStyles';
+import { contactService } from '../services/api';
 
 // Styled components
 const PageContainer = styled.div`
@@ -343,14 +344,8 @@ const ContactPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      // Simuler l'envoi du formulaire
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Ici, vous intégreriez l'API Django pour envoyer le message
-      console.log('Form data:', formData);
-      
+      await contactService.send(formData);
       setShowSuccess(true);
       setFormData({
         name: '',
@@ -359,10 +354,10 @@ const ContactPage: React.FC = () => {
         message: '',
         type: 'general'
       });
-      
       setTimeout(() => setShowSuccess(false), 5000);
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Erreur lors de l’envoi du message:', error);
+      // Optionnel: afficher un message d’erreur à l’utilisateur
     } finally {
       setIsSubmitting(false);
     }
@@ -528,8 +523,8 @@ const ContactPage: React.FC = () => {
                   </InfoIcon>
                   <InfoContent>
                     <InfoLabel>Email</InfoLabel>
-                    <InfoText>contact@blackbenai.com</InfoText>
-                    <InfoText>marino.atohoun@blackbenai.com</InfoText>
+                    <InfoText>mahouliatohoun502@gmail.com</InfoText>
+                    {/* <InfoText>marino.atohoun@blackbenai.com</InfoText> */}
                   </InfoContent>
                 </InfoItem>
 
@@ -539,7 +534,7 @@ const ContactPage: React.FC = () => {
                   </InfoIcon>
                   <InfoContent>
                     <InfoLabel>Téléphone</InfoLabel>
-                    <InfoText>+229 XX XX XX XX</InfoText>
+                    <InfoText>+229 0159037170</InfoText>
                     <InfoText>Disponible du lundi au vendredi</InfoText>
                   </InfoContent>
                 </InfoItem>
@@ -578,13 +573,13 @@ const ContactPage: React.FC = () => {
                 </InfoItem>
 
                 <SocialLinks>
-                  <SocialLink href="#" target="_blank" rel="noopener noreferrer">
+                  <SocialLink href="https://www.linkedin.com/company/blackbenai" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin />
                   </SocialLink>
                   <SocialLink href="#" target="_blank" rel="noopener noreferrer">
                     <FaTwitter />
                   </SocialLink>
-                  <SocialLink href="#" target="_blank" rel="noopener noreferrer">
+                  <SocialLink href="https://github.com/BlackBenAI" target="_blank" rel="noopener noreferrer">
                     <FaGithub />
                   </SocialLink>
                 </SocialLinks>

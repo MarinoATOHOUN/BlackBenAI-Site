@@ -281,7 +281,7 @@ const AboutPage: React.FC = () => {
 
   const stats = [
     { number: "6", label: "Projets Innovants" },
-    { number: "2024", label: "Année de Fondation" },
+    { number: "2025", label: "Année de Fondation" },
     { number: "100%", label: "Made in Africa" },
     { number: "∞", label: "Potentiel d'Impact" }
   ];
@@ -385,13 +385,13 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true }}
             >
               <FounderImage>
-                <FaUsers />
+                <img src="/marino.png" alt="Marino ATOHOUN" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
               </FounderImage>
               <FounderName>Marino ATOHOUN</FounderName>
               <FounderTitle>Président Directeur Général & Fondateur</FounderTitle>
               <FounderBio>
                 Développeur passionné et visionnaire, Marino ATOHOUN est spécialisé dans le domaine de 
-                l'intelligence artificielle. Diplômé en informatique et fort d'une expérience significative 
+                l'intelligence artificielle. Fort d'une expérience significative 
                 en développement d'applications IA, il a fondé BlackBenAI avec la conviction que l'Afrique 
                 peut et doit être leader dans les technologies de demain. Sa vision : créer les plus grands 
                 modèles d'IA du continent africain et garantir notre autonomie technologique.

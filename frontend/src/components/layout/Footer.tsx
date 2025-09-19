@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { newsletterService } from '../../services/api';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -341,20 +342,23 @@ const LegalLinks = styled.div`
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const [newsletterSuccess, setNewsletterSuccess] = useState(false);
+  const [newsletterError, setNewsletterError] = useState('');
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-
     setIsSubscribing(true);
+    setNewsletterSuccess(false);
+    setNewsletterError('');
     try {
-      // TODO: Implémenter l'abonnement à la newsletter
-      console.log('Newsletter subscription:', email);
+      await newsletterService.subscribe({ email });
       setEmail('');
-      // Afficher un message de succès
-    } catch (error) {
-      console.error('Newsletter subscription error:', error);
-      // Afficher un message d'erreur
+      setNewsletterSuccess(true);
+      setTimeout(() => setNewsletterSuccess(false), 5000);
+    } catch (error: any) {
+      setNewsletterError(error?.response?.data?.message || "Erreur lors de l'abonnement. Essayez à nouveau.");
+      setTimeout(() => setNewsletterError(''), 5000);
     } finally {
       setIsSubscribing(false);
     }
@@ -370,7 +374,7 @@ const Footer: React.FC = () => {
             {/* Informations de l'entreprise */}
             <CompanyInfo>
               <div className="logo">
-                <div className="logo-icon">BB</div>
+                <div className="logo-icon"><img src="/logo.png" alt="Logo BlackBenAI" style={{ width: '40px', height: '40px' }} /></div>
                 <div className="logo-text">
                   <span className="company-name">BlackBenAI</span>
                   <span className="tagline">L'IA au service de l'Afrique</span>
@@ -389,11 +393,11 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="contact-item">
                   <FaEnvelope className="contact-icon" />
-                  <span>contact@blackbenai.com</span>
+                  <span>mahouliatohoun502@gmail.com</span>
                 </div>
                 <div className="contact-item">
                   <FaPhone className="contact-icon" />
-                  <span>+229 XX XX XX XX</span>
+                  <span>+229 01 59 03 71 70</span>
                 </div>
               </div>
               
@@ -512,6 +516,16 @@ const Footer: React.FC = () => {
                     <FaArrowRight />
                   </button>
                 </div>
+                {newsletterSuccess && (
+                  <p style={{ color: '#2ed573', marginTop: '10px' }}>
+                    Abonnement réussi ! Merci de rejoindre la newsletter.
+                  </p>
+                )}
+                {newsletterError && (
+                  <p style={{ color: '#ff4d4f', marginTop: '10px' }}>
+                    {newsletterError}
+                  </p>
+                )}
                 <p className="newsletter-description">
                   Restez informé de nos dernières innovations et actualités IA.
                 </p>
@@ -525,7 +539,7 @@ const Footer: React.FC = () => {
               <FaHeart className="heart" />
               <span>et</span>
               <FaCode className="code" />
-              <span>par Marino ATOHOUN</span>
+              <span>par L'équipe de développement de BlackBenAI</span>
             </Copyright>
             
             <LegalLinks>

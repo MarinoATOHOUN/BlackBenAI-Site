@@ -344,7 +344,7 @@ const ProjectsPage: React.FC = () => {
       id: 'edushare',
       title: 'Edushare',
       category: 'Éducation & Partage',
-      icon: <FaBook />,
+  image: 'frontend/public/edushare.png',
       description: 'Plateforme révolutionnaire de partage de documents PDF scolaires et éducatifs. Edushare favorise le partage de connaissances entre élèves, professeurs et acteurs éducatifs tout en constituant une base de données opensource gratuite pour l\'entraînement de modèles IA éducatifs.',
       features: [
         'Partage de documents PDF éducatifs',
@@ -370,7 +370,7 @@ const ProjectsPage: React.FC = () => {
       id: 'guardclause',
       title: 'GuardClause',
       category: 'Analyse Juridique',
-      icon: <FaShieldAlt />,
+  image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
       description: 'Plateforme d\'analyse automatique des termes et conditions de sites web utilisant des techniques avancées de traitement de langage naturel (NLP). GuardClause identifie les points critiques et clauses importantes pour aider les utilisateurs à comprendre rapidement les risques légaux.',
       features: [
         'Analyse automatique des CGU/CGV',
@@ -396,7 +396,7 @@ const ProjectsPage: React.FC = () => {
       id: 'securlog',
       title: 'SecurLog',
       category: 'Vision par Ordinateur',
-      icon: <FaCamera />,
+  image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
       description: 'Système de surveillance préventive de pointe utilisant la vision par ordinateur pour la détection automatique d\'intrusions et de débuts d\'incendie. SecurLog peut être intégré à des caméras de surveillance existantes avec alertes automatiques aux services d\'urgence.',
       features: [
         'Détection d\'intrusion en temps réel',
@@ -422,7 +422,7 @@ const ProjectsPage: React.FC = () => {
       id: 'withsign',
       title: 'WithSign',
       category: 'Accessibilité',
-      icon: <FaHandPaper />,
+  image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80',
       description: 'Système innovant de traduction automatique du langage des signes destiné aux malentendants. WithSign utilise l\'IA et la vision par ordinateur pour traduire en temps réel les gestes en texte écrit, facilitant la communication et l\'inclusion.',
       features: [
         'Traduction langue des signes → texte',
@@ -448,7 +448,7 @@ const ProjectsPage: React.FC = () => {
       id: 'howroadcode',
       title: 'HowRoadCode',
       category: 'Sécurité Routière',
-      icon: <FaRoad />,
+  image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
       description: 'Assistant intelligent pour la conduite qui détecte et explique en temps réel les panneaux et feux de signalisation. HowRoadCode est parfait pour les nouveaux conducteurs ou dans des environnements de conduite inconnus, contribuant à la sécurité routière.',
       features: [
         'Détection panneaux de signalisation',
@@ -474,7 +474,7 @@ const ProjectsPage: React.FC = () => {
       id: 'mycompanygen',
       title: 'MyCompanyGen',
       category: 'IA Générative',
-      icon: <FaFileAlt />,
+  image: 'https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8f5?auto=format&fit=crop&w=400&q=80',
       description: 'IA générative de pointe spécialisée dans la rédaction de rapports d\'entreprise. Entraînée sur une vaste base de données de rapports professionnels, MyCompanyGen facilite la création de documents corporate de qualité professionnelle.',
       features: [
         'Génération de rapports automatique',
@@ -547,7 +547,7 @@ const ProjectsPage: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <ProjectImage>
-                    {project.icon}
+                    <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }} />
                   </ProjectImage>
                   
                   <ProjectContent>

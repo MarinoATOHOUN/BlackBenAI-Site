@@ -227,7 +227,7 @@ export const faqService = {
 // Service pour la newsletter
 export const newsletterService = {
   subscribe: async (subscriptionData: NewsletterFormData): Promise<NewsletterSubscriber> => {
-    const response = await apiClient.post<NewsletterSubscriber>('/api/newsletter/subscribe/', subscriptionData);
+    const response = await apiClient.post<NewsletterSubscriber>('/api/newsletter/', subscriptionData);
     return response.data;
   },
   
